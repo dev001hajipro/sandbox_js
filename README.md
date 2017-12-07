@@ -5,6 +5,12 @@ My JavaScript sandbox.
 #### Unit test Node code in 10 seconds.
 - https://glebbahmutov.com/blog/unit-test-node-code-in-10-seconds/
 
-[![Build status][ci-image]][ci-url]
-[ci-image]: https://travis-ci.org/dev001hajipro/sandbox_js.png?branch=master
-[ci-url]: https://travis-ci.org/dev001hajipro/sandbox_js
+
+[![Build Status](https://travis-ci.org/dev001hajipro/sandbox_js.svg?branch=master)](https://travis-ci.org/dev001hajipro/sandbox_js)
+
+
+### commit message sample
+  major(api): API rewrite, not backwards compatible!
+  feat(log): add new logging feature
+  fix(config): always load config first
+  chore(ci): semantic commit without triggering new version
