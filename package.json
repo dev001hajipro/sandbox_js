@@ -1,0 +1,41 @@
+{
+  "name": "sandbox_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec test/*-spec.js",
+    "watch": "npm test -- --watch",
+    "commit": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev001hajipro/sandbox_js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev001hajipro/sandbox_js/issues"
+  },
+  "homepage": "https://github.com/dev001hajipro/sandbox_js#readme",
+  "devDependencies": {
+    "check-more-types": "^2.24.0",
+    "lazy-ass": "^1.6.0",
+    "mocha": "^4.0.1",
+    "pre-git": "^3.16.0"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": [],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message"
+  }
+}
