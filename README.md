@@ -8,6 +8,9 @@ My JavaScript sandbox.
 
 [![Build Status](https://travis-ci.org/dev001hajipro/sandbox_js.svg?branch=master)](https://travis-ci.org/dev001hajipro/sandbox_js)
 
+#### nodemon can reload simple script.
+ nodemon.cmd --watch . .\algo.js
+
 
 ### commit message sample
   major(api): API rewrite, not backwards compatible!

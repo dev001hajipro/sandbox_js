@@ -25,3 +25,5 @@ const p = (n, r) => fact(n) / fact(n-r);
 exports.p = p;
 // combination
 exports.comb = (n, r) => p(n, r) / fact(r);
+
+exports.rnd = (min = 0, max = 1) => Math.floor(Math.random() * (max +1 - min) + min);
