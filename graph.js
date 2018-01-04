@@ -102,6 +102,7 @@ class LinkedList {
         if (this.first !== null)
             this.first = this.first.next;
     }
+    // 指定したノードの次のノードを削除。
     eraseAfter(node) {
         if (node != null && node.next != null)
             node.next = node.next.next;
@@ -114,11 +115,35 @@ class LinkedList {
         return count;
     }
     show() {
+        console.log(this.toString());
+    }
+    toString() {
         let sb = '';
         for (let n = this.first; n != null; n = n.next)
             sb += `${n.value}=>`;
         sb += 'null';
-        console.log(sb);
+        return sb;
+    }
+    // TODO: erase
+    erase(node) {
+        // 先頭からnodeのひとつ前のノードを探す
+        let prev = this.first;
+        for (; prev != null && prev.next != node; prev = prev.next) {
+            console.log('prev.next=', prev.next)
+        }
+        //console.log(prev);
+        /*
+        if (prev === this.first) { // 先頭を削除するのでデータがなくなる
+            this.first = null;
+            console.log('x')
+            return null;
+        }
+        */
+        if (prev != null) { // 通常の削除
+            this.eraseAfter(prev);
+            return prev.next;
+        }
+        return null;
     }
 }
 

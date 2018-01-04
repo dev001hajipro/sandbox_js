@@ -42,18 +42,27 @@ describe('graph', () => {
         ll.eraseFirst();
         let n40 = ll.insertFirst(40);
         ll.insertFirst(50);
-        ll.show();
-        console.log(n40);
+        //ll.show();
+        //console.log(n40);
         ll.insertAfter(n40, 60);        
-        ll.show();
+        //ll.show();
         ll.eraseAfter(n40);
-        ll.show();
+        //ll.show();
     });
     it ('linkedlist', () => {
         let ll = new g.LinkedList();
         ll.insertFirst(5);
         ll.insertFirst(15);
         ll.insertFirst(23);
-        ll.show();
+        //ll.show();
+    });
+    it ('linkedlist erase', () => {
+        let ll = new g.LinkedList();
+        ll.insertFirst(5);
+        let n15 = ll.insertFirst(15);
+        ll.insertFirst(23);
+        console.assert(ll.toString() === '23=>15=>5=>null')
+        ll.erase(n15); 
+        console.assert(ll.toString() === '23=>5=>null')
     });
 });
