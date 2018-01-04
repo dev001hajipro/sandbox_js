@@ -17,3 +17,6 @@ My JavaScript sandbox.
   feat(log): add new logging feature
   fix(config): always load config first
   chore(ci): semantic commit without triggering new version
+
+### 参考資料
+- http://ufcpp.net/study/algorithm/

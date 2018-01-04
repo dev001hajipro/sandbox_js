@@ -25,4 +25,12 @@ describe('graph', () => {
         console.assert(q.pop() === 8);
         console.assert(q.pop() === undefined);
     });
+
+    it ('arraylist', () => {
+        let al = new g.ArrayList();
+        al.add(0, 10);
+        al.add(1, 20);
+        console.assert(al.size() === 2);
+        console.assert(al.get(1) === 20);
+    });
 });

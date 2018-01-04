@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -R spec test/*-spec.js",
+    "test": "mocha -R dot test/*-spec.js",
     "watch": "npm test -- --watch",
     "commit": "npm test"
   },
