@@ -67,8 +67,8 @@ class ArrayList {
         return this.data[index];
     }
     remove(index) {
-        for (let n = index; n < this.count -1; n++) {
-            this.data[n] = this.data[n+1];
+        for (let n = index; n < this.count - 1; n++) {
+            this.data[n] = this.data[n + 1];
         }
         this.count--;
     }
@@ -77,17 +77,58 @@ class ArrayList {
     }
 }
 
+class Node {
+    constructor(value, next) {
+        this.value = value;
+        this.next = next;
+    }
+}
+class LinkedList {
+    constructor() {
+        this.first = null; // JavaScriptでnull,undefinedはプリミティブ型で値渡し
+    }
+    // nodeを返す。
+    insertFirst(element) {
+        let n = new Node(element, this.first);
+        this.first = n;
+        return n;
+    }
+    insertAfter(node, element) {
+        let n = new Node(element, node.next);
+        node.next = n;
+        return n;
+    }
+    eraseFirst() {
+        if (this.first !== null)
+            this.first = this.first.next;
+    }
+    eraseAfter(node) {
+        if (node != null && node.next != null)
+            node.next = node.next.next;
+    }
+
+    count() {
+        let count = 0;
+        for (let n = this.first; n != null; n = n.next)
+            count++;
+        return count;
+    }
+    show() {
+        let sb = '';
+        for (let n = this.first; n != null; n = n.next)
+            sb += `${n.value}=>`;
+        sb += 'null';
+        console.log(sb);
+    }
+}
+
 module.exports = {
     Stack: Stack,
     Queue: Queue,
     ArrayList: ArrayList,
+    LinkedList: LinkedList,
 };
 
-class Node {
-    constructor(name) {
-        this.name = name;
-    }
-}
 
 //////////////////
 // 隣接行列

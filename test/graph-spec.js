@@ -33,4 +33,27 @@ describe('graph', () => {
         console.assert(al.size() === 2);
         console.assert(al.get(1) === 20);
     });
+    it ('linkedlist', () => {
+        let ll = new g.LinkedList();
+        ll.insertFirst(5);
+        ll.insertFirst(15);
+        ll.insertFirst(23);
+        ll.eraseFirst();
+        ll.eraseFirst();
+        let n40 = ll.insertFirst(40);
+        ll.insertFirst(50);
+        ll.show();
+        console.log(n40);
+        ll.insertAfter(n40, 60);        
+        ll.show();
+        ll.eraseAfter(n40);
+        ll.show();
+    });
+    it ('linkedlist', () => {
+        let ll = new g.LinkedList();
+        ll.insertFirst(5);
+        ll.insertFirst(15);
+        ll.insertFirst(23);
+        ll.show();
+    });
 });
