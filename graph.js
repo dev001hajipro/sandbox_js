@@ -132,6 +132,8 @@ class LinkedList {
             console.log('prev.next=', prev.next)
         }
         //console.log(prev);
+        // TODO:先頭データを消すと、すべて消えてしまう。
+        // nodeがあって、node.nextがnullの場合は、以下のコード。node.nextが存在する場合は、node.nextをthis.firstにする。
         /*
         if (prev === this.first) { // 先頭を削除するのでデータがなくなる
             this.first = null;
@@ -147,11 +149,86 @@ class LinkedList {
     }
 }
 
+class Cell {
+    constructor(key, value, next) {
+        this.key = key;
+        this.value = value;
+        this.next = next;
+    }
+}
+
+// Hashtableの実装の仕組みを使うと、SetとHashMapが作れる。
+class Hashtable {
+    constructor(capacity = 256) {
+        this.capacity = capacity;
+        this.table = new Array(capacity);
+    }
+    getHash(key) {
+        let value = 0;
+        let v = key.split('').map(x=>x.charCodeAt()).reduce((acc, b)=> acc + b);
+        return v % this.capacity;
+    }
+    insert(key, value) {
+        // コードが同じなら、LinkedListでデータを追加する。
+        let code = this.getHash(key);
+        let prevHead = this.table[code];
+        this.table[code] = new Cell(key, value, prevHead);
+    }
+    erase(key) {
+        let code = this.getHash(key);
+        let head = this.table[code];
+        if (!head) {
+            return;
+        }
+        if (head.next == null) { // データが一つ
+            this.table[code] = null;
+            return;
+        }
+        if (head.key == key) {
+            this.table[code] = head.next;
+            return;
+        }
+        console.log('ppp----------', key)
+        // find previous cell.
+        for (let t = head; t.next != null; t = t.next) {
+            console.log(t.next.key);
+            if (t.next.key == key) {
+                t.next = t.next.next;
+                console.log('break!!!!!')
+                break;
+            }
+        }
+    }
+    find(key) {
+        let code = this.getHash(key);
+        let head = this.table[code];
+        while (head != null) {
+            if (head.key === key) {
+                return head;
+            }
+            head = head.next;
+        }
+        return null;        
+    }
+    contains(key) {
+        let code = this.getHash(key);
+        let head = this.table[code];
+        while (head != null) {
+            if (head.key === key) {
+                return true;
+            }
+            head = head.next;
+        }
+        return false;
+    }
+}
+
 module.exports = {
     Stack: Stack,
     Queue: Queue,
     ArrayList: ArrayList,
     LinkedList: LinkedList,
+    Hashtable, Hashtable,
 };
 
 

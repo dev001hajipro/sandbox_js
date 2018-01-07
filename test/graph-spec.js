@@ -65,4 +65,23 @@ describe('graph', () => {
         ll.erase(n15); 
         console.assert(ll.toString() === '23=>5=>null')
     });
+
+    it ('hashtable 1', () => {
+        let hs = new g.Hashtable();
+        console.assert(hs !== null);
+        console.assert(hs.getHash("hello") === 20)
+        console.assert(hs.getHash("a") === 97)
+    });
+
+    it ('hashtable insert', () => {
+        let hs = new g.Hashtable();
+        console.assert(hs !== null);
+        console.assert(hs.getHash("hello") === 20)
+        console.assert(hs.getHash("a") === 97)
+        hs.insert("hello", 5);
+        hs.insert("idllo", 21);
+        console.log(hs.table);
+        hs.erase("idllo");
+        console.log(hs.table);
+    });
 });
