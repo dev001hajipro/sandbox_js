@@ -1,3 +1,4 @@
+// use esversion:6
 // 隣接リスト(adjacency list)
 // 1000000
 
